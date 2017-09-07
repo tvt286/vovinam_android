@@ -11,7 +11,7 @@ import com.google.gson.annotations.SerializedName;
  */
 
 
-@Entity(tableName = "vodaos")
+@Entity(tableName = "vo_dao")
 public class VoDao {
     @Expose
     @SerializedName("id")

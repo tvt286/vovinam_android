@@ -10,7 +10,7 @@ import com.google.gson.annotations.SerializedName;
  * Created by TRUC-SIDA on 9/7/2017.
  */
 
-@Entity(tableName = "cobans")
+@Entity(tableName = "co_ban")
 public class CoBan {
 
     @Expose

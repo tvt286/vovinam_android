@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by TRUC-SIDA on 9/7/2017.
  */
-@Entity(tableName = "songluyens")
+@Entity(tableName = "song_luyen")
 public class SongLuyen {
     @Expose
     @SerializedName("id")
