@@ -1,0 +1,43 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.3'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        maven { url 'https://maven.google.com' } // room database
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+// khai báo version cho các thư viện
+ext {
+    //sdk and tools
+    minSdkVersion = 15
+    targetSdkVersion = 26
+    compileSdkVersion = 26
+    buildToolsVersion = '26.0.1'
+
+    // App dependencies
+    supportLibraryVersion = '26+'
+    glideVersion = '4.1.1'
+    roomDatabase = '1.0.0-alpha9'
+    rx2FastAndroidNetworking = '1.0.0'
+
+    dagger2Version = '2.8'
+    rxjava2Version = '2.1.1'
+    rxandroidVersion = '2.0.1'
+}
