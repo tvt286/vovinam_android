@@ -10,8 +10,9 @@ import com.google.gson.annotations.SerializedName;
  * Created by TRUC-SIDA on 9/7/2017.
  */
 
-@Entity(tableName = "thelucs")
-public class TheLuc {
+@Entity(tableName = "cobans")
+public class CoBan {
+
     @Expose
     @SerializedName("id")
     public int id;
