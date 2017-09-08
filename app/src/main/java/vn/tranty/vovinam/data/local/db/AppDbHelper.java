@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.Callable;
 
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 import vn.tranty.vovinam.data.model.db.LevelUp;
 import vn.tranty.vovinam.data.model.db.LevelUpHistory;
 import vn.tranty.vovinam.data.model.db.User;
@@ -21,38 +22,45 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
-    public Observable<User> getUser(final String userName) {
-        return Observable.fromCallable(new Callable<User>() {
+    public Observable<User> getUser(String userName) {
+        return Observable.fromCallable(() -> mAppDatabase.userDao().findByUserName(userName));
+    }
+
+    @Override
+    public Observable<List<LevelUp>> getListLevelUp(int companyId, int examinationId) {
+        return Observable.fromCallable(() -> mAppDatabase.levelUpDao().getAll(companyId,examinationId));
+    }
+
+    @Override
+    public Observable<List<LevelUpHistory>> getListLevelUpHistory(int levelUpId) {
+        return Observable.fromCallable(() -> mAppDatabase.levelUpHistoryDao().getAllById(levelUpId));
+    }
+
+    @Override
+    public Observable<Boolean> insertListLevelUp(List<LevelUp> levelUpList) {
+        return Observable.fromCallable(new Callable<Boolean>() {
             @Override
-            public User call() throws Exception {
-                return mAppDatabase.userDao().findByUserName(userName);
+            public Boolean call() throws Exception {
+                mAppDatabase.levelUpDao().insertAll(levelUpList);
+                return true;
             }
         });
     }
 
     @Override
-    public Observable<List<LevelUp>> getListLevelUp(int companyId, int examinationId) {
-        return null;
-    }
-
-    @Override
-    public Observable<List<LevelUpHistory>> getListLevelUpHistory(int levelUpId) {
-        return null;
-    }
-
-    @Override
-    public Observable<Boolean> insertListLevelUp(List<LevelUp> levelUpList) {
-        return null;
-    }
-
-    @Override
     public Observable<Boolean> insertUser(User user) {
-        return null;
+        return Observable.fromCallable(new Callable<Boolean>() {
+            @Override
+            public Boolean call() throws Exception {
+                mAppDatabase.userDao().insert(user);
+                return true;
+            }
+        });
     }
 
     @Override
     public Observable<LevelUp> getLevelUp(int levelUpId) {
-        return null;
+        return Observable.fromCallable(() -> mAppDatabase.levelUpDao().getById(levelUpId));
     }
 
     @Override
