@@ -7,12 +7,13 @@ import vn.tranty.vovinam.data.local.db.dao.LevelUpDao;
 import vn.tranty.vovinam.data.local.db.dao.LevelUpHistoryDao;
 import vn.tranty.vovinam.data.local.db.dao.UserDao;
 import vn.tranty.vovinam.data.model.db.LevelUp;
+import vn.tranty.vovinam.data.model.db.LevelUpHistory;
 import vn.tranty.vovinam.data.model.db.User;
 
 /**
  * Created by PC on 9/7/2017.
  */
-@Database(entities = {User.class, LevelUp.class}, version = 1)
+@Database(entities = {User.class, LevelUp.class, LevelUpHistory.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
     public abstract UserDao userDao();

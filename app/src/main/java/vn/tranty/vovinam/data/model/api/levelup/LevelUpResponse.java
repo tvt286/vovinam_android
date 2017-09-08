@@ -1,13 +1,9 @@
 package vn.tranty.vovinam.data.model.api.levelup;
 
-import android.arch.persistence.room.ColumnInfo;
-import android.arch.persistence.room.PrimaryKey;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
-
 import vn.tranty.vovinam.data.model.api.ApiError;
 
 /**
@@ -16,6 +12,8 @@ import vn.tranty.vovinam.data.model.api.ApiError;
 
 public class LevelUpResponse extends ApiError {
 
+    @Expose
+    @SerializedName("data")
     private List<LevelUp> data;
 
     public List<LevelUp> getData() {

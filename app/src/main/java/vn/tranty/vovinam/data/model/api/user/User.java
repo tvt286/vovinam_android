@@ -15,6 +15,31 @@ public class User {
     @SerializedName("id")
     private int id;
 
+    @Expose
+    @SerializedName("user_name")
+    private String userName;
+
+    @Expose
+    @SerializedName("full_name")
+    private String fullName;
+
+    @Expose
+    @SerializedName("email")
+    private String email;
+
+    @Expose
+    @SerializedName("phone")
+    private String phone;
+
+    @Expose
+    @SerializedName("image")
+    private String image;
+
+    @Expose
+    @SerializedName("company_id")
+    private String companyId;
+
+
     public int getId() {
         return id;
     }
@@ -71,28 +96,5 @@ public class User {
         this.companyId = companyId;
     }
 
-    @Expose
-    @SerializedName("user_name")
-    private String userName;
-
-    @Expose
-    @SerializedName("full_name")
-    private String fullName;
-
-    @Expose
-    @SerializedName("email")
-    private String email;
-
-    @Expose
-    @SerializedName("phone")
-    private String phone;
-
-    @Expose
-    @SerializedName("image")
-    private String image;
-
-    @Expose
-    @SerializedName("company_id")
-    private String companyId;
 
 }

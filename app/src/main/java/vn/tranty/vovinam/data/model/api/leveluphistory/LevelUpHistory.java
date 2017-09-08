@@ -2,6 +2,8 @@ package vn.tranty.vovinam.data.model.api.leveluphistory;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import vn.tranty.vovinam.data.model.api.levelup.LevelUp;
+
 /**
  * Created by PC on 9/7/2017.
  */
@@ -20,8 +22,8 @@ public class LevelUpHistory {
     private String timeCreate;
 
     @Expose
-    @SerializedName("level_up_id")
-    private int LevelUpId;
+    @SerializedName("level_up")
+    private LevelUp levelUp;
 
     @Expose
     @SerializedName("name")
@@ -62,12 +64,12 @@ public class LevelUpHistory {
         this.timeCreate = timeCreate;
     }
 
-    public int getLevelUpId() {
-        return LevelUpId;
+    public LevelUp getLevelUp() {
+        return levelUp;
     }
 
-    public void setLevelUpId(int levelUpId) {
-        LevelUpId = levelUpId;
+    public void setLevelUp(LevelUp levelUp) {
+        this.levelUp = levelUp;
     }
 
     public String getName() {

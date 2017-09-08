@@ -1,5 +1,8 @@
 package vn.tranty.vovinam.data.model.api.user;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 import vn.tranty.vovinam.data.model.api.ApiError;
 
 /**
@@ -7,6 +10,8 @@ import vn.tranty.vovinam.data.model.api.ApiError;
  */
 
 public class UserReponse extends ApiError {
+    @Expose
+    @SerializedName("data")
     private User data;
 
     public User getData() {
