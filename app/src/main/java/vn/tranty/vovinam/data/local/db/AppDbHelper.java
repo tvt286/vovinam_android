@@ -1,6 +1,7 @@
 package vn.tranty.vovinam.data.local.db;
 
 import java.util.List;
+import java.util.concurrent.Callable;
 
 import io.reactivex.Observable;
 import vn.tranty.vovinam.data.model.db.LevelUp;
@@ -9,6 +10,7 @@ import vn.tranty.vovinam.data.model.db.User;
 
 /**
  * Created by PC on 9/7/2017.
+ * Đọc dữ liệu từ data nên sử dụng fromCallable()
  */
 
 public class AppDbHelper implements DbHelper {
@@ -19,8 +21,13 @@ public class AppDbHelper implements DbHelper {
     }
 
     @Override
-    public Observable<User> getUser(int userId) {
-        return null;
+    public Observable<User> getUser(final String userName) {
+        return Observable.fromCallable(new Callable<User>() {
+            @Override
+            public User call() throws Exception {
+                return mAppDatabase.userDao().findByUserName(userName);
+            }
+        });
     }
 
     @Override

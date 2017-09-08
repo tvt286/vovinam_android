@@ -12,7 +12,7 @@ import vn.tranty.vovinam.data.model.db.User;
  */
 
 public interface DbHelper {
-    Observable<User> getUser(int userId);
+    Observable<User> getUser(String userName);
 
     Observable<List<LevelUp>> getListLevelUp(int companyId, int examinationId);
 
