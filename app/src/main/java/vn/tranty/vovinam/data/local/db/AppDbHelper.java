@@ -3,6 +3,8 @@ package vn.tranty.vovinam.data.local.db;
 import java.util.List;
 import java.util.concurrent.Callable;
 
+import javax.inject.Inject;
+
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import vn.tranty.vovinam.data.model.db.LevelUp;
@@ -17,6 +19,7 @@ import vn.tranty.vovinam.data.model.db.User;
 public class AppDbHelper implements DbHelper {
     private final AppDatabase mAppDatabase;
 
+    @Inject
     public AppDbHelper(AppDatabase mAppDatabase) {
         this.mAppDatabase = mAppDatabase;
     }
